@@ -28,7 +28,7 @@ public class Conexion<T> {
 	
 	public static EntityManager getEm(){
 		if ( em == null ) {
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("divnoteGen");
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("parcial");
             em = emf.createEntityManager();
         }
 		return em;
@@ -42,6 +42,19 @@ public class Conexion<T> {
 	public List<T> list(){
 		TypedQuery<T> consulta= em.createNamedQuery(c.getSimpleName()+".findAll", c);
 		List<T> lista = (List<T>) consulta.getResultList();
+		 for (T object : lista) {
+		        if(object instanceof parcial.entities.Paciente) {
+		        	parcial.entities.Paciente paciente = (parcial.entities.Paciente) object;
+		        	 paciente.setImc(paciente.obtenerIMC());
+		        	 if(paciente.getGenero()=="HOMBRE" || paciente.getGenero()=="Hombre") {
+		        		
+		        	 } else {
+		        		 if(paciente.getGenero()=="Mujer" || paciente.getGenero()=="MUJER") {
+			        		 
+			        	 }
+		        	 }
+		        }
+		        }
 		return lista;
 	}
 	
