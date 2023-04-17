@@ -46,12 +46,10 @@ public class Conexion<T> {
 		        if(object instanceof parcial.entities.Paciente) {
 		        	parcial.entities.Paciente paciente = (parcial.entities.Paciente) object;
 		        	 paciente.setImc(paciente.obtenerIMC());
-		        	 if(paciente.getGenero()=="HOMBRE" || paciente.getGenero()=="Hombre") {
+		        	 if(paciente.getGenero()=="H") {
 		        		
 		        	 } else {
-		        		 if(paciente.getGenero()=="Mujer" || paciente.getGenero()=="MUJER") {
-			        		 
-			        	 }
+		        		 
 		        	 }
 		        }
 		        }
